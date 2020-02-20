@@ -1,6 +1,10 @@
 package model.logic;
 
-public class Comparendo
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Comparendo implements Comparable<Comparendo>
 {
 	private String type;
 	private Informacion properties;
@@ -30,5 +34,21 @@ public class Comparendo
 		String string = properties.toString() + "\n" ;
 		String string2 = geometry.toString();
 		return string + string2;
+	}
+	@Override
+	public int compareTo(Comparendo o)
+	{
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
+		int respuesta = 0;
+		try
+		{
+			Date f1 = sf.parse(properties.darfecha());
+			Date f2 = sf.parse(o.darDetalles().darfecha());
+			respuesta = (f1.compareTo(f2));
+		}
+		catch (ParseException e) 
+		{
+		}
+		return respuesta;
 	}
 }
