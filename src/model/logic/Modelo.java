@@ -166,4 +166,13 @@ public class Modelo {
 		return respuesta;
 	}
 
+	public Comparable[] copiarComparendos()
+	{
+		Comparable[] arreglo = new Comparable[comparendos.darTamaño()];
+		for(int i = 0; i < comparendos.darTamaño(); i++)
+		{
+			arreglo[i] = comparendos.darElementoPosicion(i);
+		}
+		return arreglo;
+	}
 }
