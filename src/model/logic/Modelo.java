@@ -165,7 +165,10 @@ public class Modelo {
 		double[] respuesta = {minLatitud, minLongitud, maxLatitud, maxLongitud};
 		return respuesta;
 	}
-
+	/**
+	 * Retorna un arreglo con los Comparendos en el orden en que se leyeron
+	 * @return arrreglo con los comparendos
+	 */
 	public Comparable[] copiarComparendos()
 	{
 		Comparable[] arreglo = new Comparable[comparendos.darTamaño()];

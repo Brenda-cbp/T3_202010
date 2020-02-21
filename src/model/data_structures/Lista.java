@@ -1,7 +1,8 @@
 package model.data_structures;
 
+import java.util.Iterator;
 
-public class Lista<T>  implements ILista<T> {
+public class Lista<T>  implements ILista<T>, Iterable<T> {
 	private Node cabeza;
 	private Node actual;
 	private Node ultimo;
@@ -144,5 +145,35 @@ public class Lista<T>  implements ILista<T> {
 			}
 		}
 		return (T) actual.darElemento();
+	}
+
+	@Override
+	public Iterator<T> iterator() 
+	{
+		return new IteradorLista();
+	}
+	protected class IteradorLista implements Iterator<T>
+	{
+		public IteradorLista()
+		{
+			actual = cabeza;
+		}
+		public boolean hasNext()
+		{
+			if(actual == null || actual.darSiguiente() == null)
+				return false;
+			return actual.darSiguiente().darElemento() != null;
+		}
+		public T next()
+		{
+			if(!hasNext())
+				return null;
+			actual = actual.darSiguiente();
+			return (T) actual.darElemento();
+		}
+		public void remove()
+		{
+			
+		}
 	}
 }
