@@ -178,4 +178,8 @@ public class Modelo {
 		}
 		return arreglo;
 	}
+	public void ordenarMerge(Comparable[] arreglo)
+	{
+		
+	}
 }
