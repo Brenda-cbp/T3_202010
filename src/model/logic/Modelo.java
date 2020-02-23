@@ -21,7 +21,7 @@ import model.data_structures.Lista;
 public class Modelo {
 
 
-	public final String RUTA = "./data/comparendos_dei_2018_small.geojson";
+	public final String RUTA = "./data/comparendos_dei_2018.geojson";
 
 	/**
 	 * Atributos del modelo del mundo
@@ -163,7 +163,9 @@ public class Modelo {
 				maxLongitud = actual.darUbicacion().darLongitud();
 		}
 		double[] respuesta = {minLatitud, minLongitud, maxLatitud, maxLongitud};
+		ordenarMerge();
 		return respuesta;
+		
 	}
 	/**
 	 * Retorna un arreglo con los Comparendos en el orden en que se leyeron
@@ -178,8 +180,14 @@ public class Modelo {
 		}
 		return arreglo;
 	}
-	public void ordenarMerge(Comparable[] arreglo)
+	public void ordenarMerge()
 	{
-		
+		Comparable[] arreglo = copiarComparendos();
+		Sorting.mergeSort(arreglo);
+		for(int i= 0; i < arreglo.length; i++)
+		{
+			System.out.println(arreglo[i]);
+			System.out.println();
+		}
 	}
 }

@@ -31,7 +31,7 @@ public class View
 		/**
 		 * Imprime los resultados tras haber cargado los comparendos a la lista
 		 */
-		public void imprimirResultadosCarga(int tamaño, Comparendo primero, Comparendo ultimo, double[] minimax)
+		public void imprimirResultadosCarga(int tamaño, Comparendo primero, Comparendo ultimo)//, double[] minimax)
 		{
 			System.out.println("Total comparendos: " +  tamaño);
 			System.out.println();
@@ -43,8 +43,8 @@ public class View
 			System.out.println();
 			System.out.println(ultimo);
 			System.out.println();
-			System.out.println("Zona minimax:" );
-			System.out.println("(" + minimax[0] + "," + minimax[1] + ") (" + minimax[2] + "," + minimax[3] + ")");
+			//System.out.println("Zona minimax:" );
+			//System.out.println("(" + minimax[0] + "," + minimax[1] + ") (" + minimax[2] + "," + minimax[3] + ")");
 
 
 		}

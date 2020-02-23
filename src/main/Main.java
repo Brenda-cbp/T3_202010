@@ -1,5 +1,6 @@
 package main;
 import controller.Controller;
+import model.logic.Sorting;
 
 public class Main {
 	
