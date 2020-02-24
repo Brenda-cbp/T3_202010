@@ -1,5 +1,11 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import model.logic.Comparendo;
 import model.logic.Modelo;
 
@@ -47,6 +53,40 @@ public class View
 			//System.out.println("(" + minimax[0] + "," + minimax[1] + ") (" + minimax[2] + "," + minimax[3] + ")");
 
 
+		}
+		public void imprimirOrdenar(String metodo, double tiempo, Comparable[] arreglo)
+		{
+			System.out.println(metodo + ":");
+			System.out.println("Tiempo Transcurrido:" + tiempo);
+			System.out.println("Primeros 10:");
+			for(int i = 0; i < 10;i++)
+			{
+				System.out.println(arreglo[i]);
+			}
+			System.out.println("Ultimos 10:");
+			for(int i = arreglo.length -1; i > arreglo.length - 11; i--)
+			{
+				System.out.println(arreglo[i]);
+			}
+		}
+		public int opcionesDeOrdenamiento()
+		{
+			int opc = 0;
+			try 
+			{
+				System.out.println("Ingrese la opcion a realizar:");
+				System.out.println("1. Shell Sorting");
+				System.out.println("2. Merge sorting");
+				System.out.println("3. Quick sorting");
+				opc = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
+				if(opc >3 || opc < 1)
+					opcionesDeOrdenamiento();
+			}
+			catch(Exception e)
+			{
+				opcionesDeOrdenamiento();
+			}
+			return opc;
 		}
 		public void printModelo(Modelo modelo)
 		{

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
+import model.logic.Cronometro;
 import model.logic.Modelo;
 import view.View;
 
@@ -22,8 +23,32 @@ public class Controller {
 		view = new View();
 		modelo = new Modelo();
 		view.imprimirResultadosCarga(modelo.darTamano(), modelo.get(0), modelo.get(modelo.darTamano()-1));//,modelo.darZonaMinimax());
+		int opc = view.opcionesDeOrdenamiento();
+		if(opc ==1)
+			ordenarShell();
+		else if(opc ==2)
+			ordenarMerge();
+		else if (opc ==3)
+			ordenarQuick();
 	}
+	public void ordenarMerge()
+	{
+		Cronometro c1 = new Cronometro();
+		Comparable[] arreglo = modelo.ordenarMerge();
+		double tiempo = c1.darTiempo();
+		view.imprimirOrdenar("Merge", tiempo, arreglo);
+	}
+	public void ordenarQuick()
+	{
+		Cronometro c1 = new Cronometro();
+		Comparable[] arreglo = modelo.ordenarQuick();
+		double tiempo = c1.darTiempo();
+		view.imprimirOrdenar("Quick", tiempo, arreglo);
+	}
+	public void ordenarShell()
+	{
 		
+	}
 	public void run() 
 	{
 		Scanner lector = new Scanner(System.in);

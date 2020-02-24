@@ -180,14 +180,16 @@ public class Modelo {
 		}
 		return arreglo;
 	}
-	public void ordenarMerge()
-	{
+	public Comparable[] ordenarMerge()
+	{	
 		Comparable[] arreglo = copiarComparendos();
 		Sorting.mergeSort(arreglo);
-		for(int i= 0; i < arreglo.length; i++)
-		{
-			System.out.println(arreglo[i]);
-			System.out.println();
-		}
+		return arreglo;
+	}
+	public Comparable[] ordenarQuick()
+	{	
+		Comparable[] arreglo = copiarComparendos();
+		Sorting.quickSort(arreglo);
+		return arreglo;
 	}
 }
