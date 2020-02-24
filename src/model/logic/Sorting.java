@@ -99,10 +99,10 @@ public class Sorting {
 		Comparable v = principal[low];
 		while (true) {
 
-			while (principal[++i].compareTo(v) < 0)
+			while (principal[++i].compareTo(v) <= 0)
 				if (i == hi)
 					break;
-			while (v.compareTo(principal[--j]) < 0)
+			while (v.compareTo(principal[--j]) <= 0)
 				if (j == low)
 					break;
 			if (i >= j)
@@ -123,7 +123,7 @@ public class Sorting {
 		// Utiliza libreria adjunta al texto
 		// guia:https://introcs.cs.princeton.edu/java/stdlib/
 		StdRandom.shuffle(principal);
-		quickSort(principal, principal.length -1, 0);
+		quickSort(principal, 0, principal.length-1);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class Sorting {
 	 * @param low
 	 *            inicio del arreglo
 	 */
-	public static void quickSort(Comparable[] arreglo, int hi, int low) {
+	public static void quickSort(Comparable[] arreglo, int low, int hi) {
 		// Tomado de "Slides clase 9" en Sicua
 		if (hi <= low)
 			return;

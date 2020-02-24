@@ -56,17 +56,22 @@ public class View
 		}
 		public void imprimirOrdenar(String metodo, double tiempo, Comparable[] arreglo)
 		{
+			System.out.println();
 			System.out.println(metodo + ":");
 			System.out.println("Tiempo Transcurrido:" + tiempo);
 			System.out.println("Primeros 10:");
+			System.out.println();
 			for(int i = 0; i < 10;i++)
 			{
 				System.out.println(arreglo[i]);
+				System.out.println();
 			}
 			System.out.println("Ultimos 10:");
+			System.out.println();
 			for(int i = arreglo.length -1; i > arreglo.length - 11; i--)
 			{
 				System.out.println(arreglo[i]);
+				System.out.println();
 			}
 		}
 		public int opcionesDeOrdenamiento()
