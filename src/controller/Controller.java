@@ -36,18 +36,21 @@ public class Controller {
 		Cronometro c1 = new Cronometro();
 		Comparable[] arreglo = modelo.ordenarMerge();
 		double tiempo = c1.darTiempo();
-		view.imprimirOrdenar("Merge", tiempo, arreglo);
+		view.imprimirOrdenar("Merge ", tiempo, arreglo);
 	}
 	public void ordenarQuick()
 	{
 		Cronometro c1 = new Cronometro();
 		Comparable[] arreglo = modelo.ordenarQuick();
 		double tiempo = c1.darTiempo();
-		view.imprimirOrdenar("Quick", tiempo, arreglo);
+		view.imprimirOrdenar("Quick ", tiempo, arreglo);
 	}
 	public void ordenarShell()
 	{
-		
+		Cronometro c1 = new Cronometro();
+		Comparable[] arreglo = modelo.ordenarShell();
+		double tiempo = c1.darTiempo();
+		view.imprimirOrdenar("Shell ", tiempo, arreglo);
 	}
 	public void run() 
 	{

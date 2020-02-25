@@ -192,4 +192,9 @@ public class Modelo {
 		Sorting.quickSort(arreglo);
 		return arreglo;
 	}
+	public Comparable[] ordenarShell() {
+		Comparable[] arreglo= copiarComparendos();
+		Sorting.shellSort(arreglo);
+		return arreglo;
+	}
 }

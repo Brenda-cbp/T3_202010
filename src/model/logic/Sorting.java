@@ -25,7 +25,7 @@ public class Sorting<T> {
 	 * 					Arreglo a ordenar
 	 */					
 	public static void shellSort(Comparable[] principal) {
-		//Tomado de canal de Youtube Quinston Pimenta
+		//Tomado de geeksforgeeks
 		int mitad=principal.length/2;
 		while (mitad>0) {
 			int j =0;
