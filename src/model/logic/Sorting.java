@@ -10,7 +10,7 @@ import edu.princeton.cs.introcs.StdRandom;
  * @author andre
  *
  */
-public class Sorting {
+public class Sorting<T> {
 	/**
 	 * Arreglo auxiliar para ordenamiento
 	 */
@@ -19,6 +19,25 @@ public class Sorting {
 	public Sorting() {
 	}
 
+	/**
+	 * Organiza el arreglo que llega por parámetro con el método shell
+	 * @param principal
+	 * 					Arreglo a ordenar
+	 */					
+	public static void shellSort(Comparable[] principal) {
+		//Tomado de canal de Youtube Quinston Pimenta
+		int mitad=principal.length/2;
+		while (mitad>0) {
+			int j =0;
+			for (int i =mitad; i<principal.length;i++) {
+				Comparable elemento=principal[i];
+				for ( j= i; j>=mitad && principal[j-mitad].compareTo(elemento)>0;j-=mitad )
+					principal[j]=principal[j-mitad];
+				principal[j]=elemento; 
+			}
+			mitad/=2;
+		}
+	}
 	/**
 	 * Organiza el arreglo que llega por parametro usando merge sorting, es el
 	 * que llama la clase principal
