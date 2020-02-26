@@ -33,8 +33,8 @@ public class TestSorting {
 	 */
 	public void setUp3() {
 		descendente=new Comparable[CAPACIDAD];
-		for (int i= 100; i<0;i--) {
-			descendente[i-1]=i;
+		for (int i= CAPACIDAD-1; i>=0;i--) {
+			descendente[i]=i;
 		}
 	}
 	/**
@@ -59,12 +59,13 @@ public class TestSorting {
 		setUp4();
 		sort.shellSort(aleatorio);
 		for (int i= 0 ; i<=10;i++) {
+			
 			assertEquals("Error con los 10 primeros elementos ordenados por shellsort del arreglo ascendente", i, (int) ascendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort  del arreglo ascendente", CAPACIDAD-i, (int) ascendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort  del arreglo ascendente", CAPACIDAD-1-i, (int) ascendente[CAPACIDAD-1-i]);
 			assertEquals("Error con los 10 primeros elementos ordenados por shellsort del arreglo descendente", i, (int) descendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort del arreglo descendente", CAPACIDAD-i, (int) descendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort del arreglo descendente", CAPACIDAD-1-i, (int) descendente[CAPACIDAD-1-i]);
 			assertEquals("Error con los 10 primeros elementos ordenados por shellsort del arreglo aleatorio", i, (int) aleatorio[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort del arreglo aleatorio", CAPACIDAD-i, (int) aleatorio[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por shellsort del arreglo aleatorio", CAPACIDAD-1-i, (int) aleatorio[CAPACIDAD-1-i]);
 		}
 
 	}
@@ -79,11 +80,11 @@ public class TestSorting {
 		sort.mergeSort(aleatorio);
 		for (int i= 0 ; i<=10;i++) {
 			assertEquals("Error con los 10 primeros elementos ordenados por mergesort  del arreglo ascendente", i, (int) ascendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo ascendente", CAPACIDAD-i, (int) ascendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo ascendente", CAPACIDAD-i-1, (int) ascendente[CAPACIDAD-1-i]);
 			assertEquals("Error con los 10 primeros elementos ordenados por mergesort del arreglo descendente", i, (int) descendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo descendente", CAPACIDAD-i, (int) descendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo descendente", CAPACIDAD-i-1, (int) descendente[CAPACIDAD-1-i]);
 			assertEquals("Error con los 10 primeros elementos ordenados por mergesort del arreglo aleatorio", i, (int) aleatorio[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo aleatorio", CAPACIDAD-i, (int) aleatorio[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por mergesort del arreglo aleatorio", CAPACIDAD-i-1, (int) aleatorio[CAPACIDAD-1-i]);
 		}
 	}
 	@Test
@@ -97,11 +98,11 @@ public class TestSorting {
 		sort.quickSort(aleatorio);
 		for (int i= 0 ; i<=10;i++) {
 			assertEquals("Error con los 10 primeros elementos ordenados por quicksort del arreglo ascendente", i, (int) ascendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo ascendente", CAPACIDAD-i, (int) ascendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo ascendente", CAPACIDAD-i-1, (int) ascendente[CAPACIDAD-i-1]);
 			assertEquals("Error con los 10 primeros elementos ordenados por quicksort del arreglo descendente", i, (int) descendente[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo descendente", CAPACIDAD-i, (int) descendente[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo descendente", CAPACIDAD-i-1, (int) descendente[CAPACIDAD-i-1]);
 			assertEquals("Error con los 10 primeros elementos ordenados por quicksort del arreglo aleatorio", i, (int) aleatorio[i]);
-			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo aleatorio", CAPACIDAD-i, (int) aleatorio[CAPACIDAD-i]);
+			assertEquals("Error con los 10 ultimos elementos ordenados por quicksort del arreglo aleatorio", CAPACIDAD-i-1, (int) aleatorio[CAPACIDAD-i-1]);
 		}
 
 	}

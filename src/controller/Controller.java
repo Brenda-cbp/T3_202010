@@ -47,10 +47,11 @@ public class Controller {
 	}
 	public void ordenarShell()
 	{
-		Cronometro c1 = new Cronometro();
+		double tiempoInicio = System.currentTimeMillis();
 		Comparable[] arreglo = modelo.ordenarShell();
-		double tiempo = c1.darTiempo();
-		view.imprimirOrdenar("Shell ", tiempo, arreglo);
+		double tiempoFin = System.currentTimeMillis();
+		double tiempoTotal = tiempoFin - tiempoInicio; 
+		view.imprimirOrdenar("Shell ", tiempoTotal, arreglo);
 	}
 	public void run() 
 	{
