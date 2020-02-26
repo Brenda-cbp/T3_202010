@@ -82,12 +82,16 @@ public class Lista<T> implements ILista<T>, Iterable<T> {
 		return tamaño;
 	}
 
-	public T darElementoPosicion(int pos) {
+	public T darElementoPosicion(int pos)
+	{
 		Node act = cabeza;
 		int i = 0;
+		
 		if (pos == tamaño - 1)
 			return (T) ultimo.darElemento();
-		while (act != null && i < pos) {
+		
+		while (act != null && i < pos)
+		{
 			i++;
 			act = act.darSiguiente();
 		}

@@ -16,20 +16,14 @@ public class Controller {
 	
 	/**
 	 * Crear la vista y el modelo del proyecto
-	 * @param capacidad tamaNo inicial del arreglo
+	 * @param capacidad tamaNo  inicial del arreglo
 	 */
 	public Controller ()
 	{
 		view = new View();
 		modelo = new Modelo();
 		view.imprimirResultadosCarga(modelo.darTamano(), modelo.get(0), modelo.get(modelo.darTamano()-1));//,modelo.darZonaMinimax());
-		int opc = view.opcionesDeOrdenamiento();
-		if(opc ==1)
-			ordenarShell();
-		else if(opc ==2)
-			ordenarMerge();
-		else if (opc ==3)
-			ordenarQuick();
+		
 	}
 	public void ordenarMerge()
 	{
@@ -37,6 +31,7 @@ public class Controller {
 		Comparable[] arreglo = modelo.ordenarMerge();
 		double tiempo = c1.darTiempo();
 		view.imprimirOrdenar("Merge ", tiempo, arreglo);
+		System.out.println("Merge "+ tiempo);
 	}
 	public void ordenarQuick()
 	{
@@ -44,14 +39,18 @@ public class Controller {
 		Comparable[] arreglo = modelo.ordenarQuick();
 		double tiempo = c1.darTiempo();
 		view.imprimirOrdenar("Quick ", tiempo, arreglo);
+		System.out.println("Quick "+ tiempo);
 	}
 	public void ordenarShell()
 	{
 		double tiempoInicio = System.currentTimeMillis();
+		System.out.println("llega");
 		Comparable[] arreglo = modelo.ordenarShell();
+		System.out.println("sale");
 		double tiempoFin = System.currentTimeMillis();
 		double tiempoTotal = tiempoFin - tiempoInicio; 
 		view.imprimirOrdenar("Shell ", tiempoTotal, arreglo);
+		System.out.println("Shell  "+ tiempoTotal);
 	}
 	public void run() 
 	{
@@ -66,58 +65,20 @@ public class Controller {
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
-					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new Modelo(capacidad); 
-				    view.printMessage("Arreglo creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
+					view.printMessage("--------- \n ordenar Shell ");
+					ordenarShell();
+				    break;
 
 				case 2:
-					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
-					dato = lector.next();
-					modelo.agregar(dato);
-					view.printMessage("Dato agregado");
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("--------- \nOrdenar por Merge ");
+					ordenarMerge();					
 					break;
 
 				case 3:
-					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
-					dato = lector.next();
-					respuesta = modelo.buscar(dato);
-					if ( respuesta != null)
-					{
-						view.printMessage("Dato encontrado: "+ respuesta);
-					}
-					else
-					{
-						view.printMessage("Dato NO encontrado");
-					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("--------- \nOrdenar por Quick ");
+					ordenarQuick();					
 					break;
-
-				case 4:
-					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
-					if ( respuesta != null)
-					{
-						view.printMessage("Dato eliminado "+ respuesta);
-					}
-					else
-					{
-						view.printMessage("Dato NO eliminado");							
-					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 5: 
-					view.printMessage("--------- \nContenido del Arreglo: ");
-					view.printModelo(modelo);
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;	
-					
-				case 6: 
+				case 4: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;

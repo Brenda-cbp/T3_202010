@@ -21,7 +21,7 @@ import model.data_structures.Lista;
 public class Modelo {
 
 
-	public final String RUTA = "./data/comparendos_dei_2018.geojson";
+	public final String RUTA = "./data/comparendos_dei_2018_small .geojson";
 
 	/**
 	 * Atributos del modelo del mundo
@@ -177,7 +177,9 @@ public class Modelo {
 		for(int i = 0; i < comparendos.darTamaño(); i++)
 		{
 			arreglo[i] = comparendos.darElementoPosicion(i);
+			
 		}
+		
 		return arreglo;
 	}
 	public Comparable[] ordenarMerge()
@@ -194,6 +196,7 @@ public class Modelo {
 	}
 	public Comparable[] ordenarShell() {
 		Comparable[] arreglo= copiarComparendos();
+
 		Sorting.shellSort(arreglo);
 		return arreglo;
 	}
