@@ -28,7 +28,7 @@ public class Controller {
 	public void ordenarMerge()
 	{
 		Cronometro c1 = new Cronometro();
-		Comparable[] arreglo = modelo.ordenarMerge();
+		Comparable[] arreglo = modelo.ordenarMerge(c1);
 		double tiempo = c1.darTiempo();
 		view.imprimirOrdenar("Merge ", tiempo, arreglo);
 		System.out.println("Merge "+ tiempo);
@@ -36,21 +36,18 @@ public class Controller {
 	public void ordenarQuick()
 	{
 		Cronometro c1 = new Cronometro();
-		Comparable[] arreglo = modelo.ordenarQuick();
+		Comparable[] arreglo = modelo.ordenarQuick(c1);
 		double tiempo = c1.darTiempo();
 		view.imprimirOrdenar("Quick ", tiempo, arreglo);
 		System.out.println("Quick "+ tiempo);
 	}
 	public void ordenarShell()
 	{
-		double tiempoInicio = System.currentTimeMillis();
-		System.out.println("llega");
-		Comparable[] arreglo = modelo.ordenarShell();
-		System.out.println("sale");
-		double tiempoFin = System.currentTimeMillis();
-		double tiempoTotal = tiempoFin - tiempoInicio; 
-		view.imprimirOrdenar("Shell ", tiempoTotal, arreglo);
-		System.out.println("Shell  "+ tiempoTotal);
+		Cronometro c1 = new Cronometro();
+		Comparable[] arreglo = modelo.ordenarShell(c1);
+		double tiempo = c1.darTiempo();
+		view.imprimirOrdenar("Quick ", tiempo, arreglo);
+		System.out.println("Quick "+ tiempo);
 	}
 	public void run() 
 	{

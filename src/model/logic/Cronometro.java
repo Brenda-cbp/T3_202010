@@ -3,22 +3,39 @@ package model.logic;
 //Solucion tomada del libro guia en:https://algs4.cs.princeton.edu/14analysis/Stopwatch.java.html
 public class Cronometro { 
 
-    private final long start;
+    private long start;
+    private double tiempo;
 
     /**
      * Inicializa el cronometro
      */
-    public Cronometro() {
-        start = System.currentTimeMillis();
+    public Cronometro() 
+    {
+       tiempo = 0;
     } 
-
+    /**
+     * Registra el momento en que inicia la operacion;
+     */
+    public void iniciar()
+    {
+    	 start = System.currentTimeMillis();
+    }
 
     /**
      * Retorna el tiempo en segundos que paso desde la creacion del cronometro
      * @return tiempo que paso desde la cracion del cronometro en segundos
      */
-    public double darTiempo() {
+    public double registrarTiempo() {
         long now = System.currentTimeMillis();
-        return (now - start) / 1000.0;
+        tiempo = (now - start) / 1000.0;
+        return tiempo;
+    }
+    /**
+     * Retorna el tiempo regitrado en el momento
+     * @return tiempo registrado
+     */
+    public double darTiempo()
+    {
+    	return tiempo;
     }
 }

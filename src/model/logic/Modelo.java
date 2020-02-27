@@ -21,7 +21,7 @@ import model.data_structures.Lista;
 public class Modelo {
 
 
-	public final String RUTA = "./data/comparendos_dei_2018_small .geojson";
+	public final String RUTA = "./data/comparendos_dei_2018.geojson";
 
 	/**
 	 * Atributos del modelo del mundo
@@ -163,7 +163,6 @@ public class Modelo {
 				maxLongitud = actual.darUbicacion().darLongitud();
 		}
 		double[] respuesta = {minLatitud, minLongitud, maxLatitud, maxLongitud};
-		ordenarMerge();
 		return respuesta;
 		
 	}
@@ -182,22 +181,27 @@ public class Modelo {
 		
 		return arreglo;
 	}
-	public Comparable[] ordenarMerge()
+	public Comparable[] ordenarMerge(Cronometro c1)
 	{	
 		Comparable[] arreglo = copiarComparendos();
+		c1.iniciar();
 		Sorting.mergeSort(arreglo);
+		c1.registrarTiempo();
 		return arreglo;
 	}
-	public Comparable[] ordenarQuick()
+	public Comparable[] ordenarQuick(Cronometro c1)
 	{	
 		Comparable[] arreglo = copiarComparendos();
+		c1.iniciar();
 		Sorting.quickSort(arreglo);
+		c1.registrarTiempo();
 		return arreglo;
 	}
-	public Comparable[] ordenarShell() {
+	public Comparable[] ordenarShell(Cronometro c1) {
 		Comparable[] arreglo= copiarComparendos();
-
+		c1.iniciar();
 		Sorting.shellSort(arreglo);
+		c1.registrarTiempo();
 		return arreglo;
 	}
 }
