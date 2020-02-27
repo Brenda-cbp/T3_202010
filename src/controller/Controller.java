@@ -46,8 +46,8 @@ public class Controller {
 		Cronometro c1 = new Cronometro();
 		Comparable[] arreglo = modelo.ordenarShell(c1);
 		double tiempo = c1.darTiempo();
-		view.imprimirOrdenar("Quick ", tiempo, arreglo);
-		System.out.println("Quick "+ tiempo);
+		view.imprimirOrdenar("Shell ", tiempo, arreglo);
+		System.out.println("Shell "+ tiempo);
 	}
 	public void run() 
 	{

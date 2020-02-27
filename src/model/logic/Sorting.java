@@ -34,7 +34,6 @@ public class Sorting<T> {
 				for ( j= i; j>=mitad && principal[j-mitad].compareTo(elemento)>0;j-=mitad )
 					principal[j]=principal[j-mitad];
 				principal[j]=elemento; 
-				System.out.println("f");
 			}
 			mitad/=2;
 		}
